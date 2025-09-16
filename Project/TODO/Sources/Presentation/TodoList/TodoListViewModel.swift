@@ -9,6 +9,8 @@ import Foundation
 
 protocol TodoListViewModel {
     var items: [TodoItemViewModel] { get }
+    
+    func selectItem()
 }
 
 final class TodoListViewModelImpl: TodoListViewModel {
@@ -40,4 +42,8 @@ final class TodoListViewModelImpl: TodoListViewModel {
         TodoItemViewModel(title: "TODO19", userName: "Sarvar"),
         TodoItemViewModel(title: "TODO10", userName: "Sarvar"),
     ]
+    
+    func selectItem() {
+        coordinator.showDetails()
+    }
 }

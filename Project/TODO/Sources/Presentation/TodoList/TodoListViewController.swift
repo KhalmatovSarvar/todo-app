@@ -39,7 +39,7 @@ final class TodoListViewController: BaseViewController {
         
         view.backgroundColor = .backgroundBody
         navigationItem.title = "TODO list"
-        hideKeyboardOnTap(cancelsTouchesInView: true)
+        hideKeyboardOnTap(cancelsTouchesInView: false)
     }
     
     
@@ -87,6 +87,13 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
         let model = viewModel.items[indexPath.row]
         cell.setup(with: model)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let item = viewModel.items[indexPath.row]
+        viewModel.selectItem()
     }
 }
 

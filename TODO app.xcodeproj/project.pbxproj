@@ -25,6 +25,13 @@
 		FE7381E02E792632001CD7E9 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381DF2E792632001CD7E9 /* BaseTableViewCell.swift */; };
 		FE7381E22E79279C001CD7E9 /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381E12E79279C001CD7E9 /* TodoListTableViewCell.swift */; };
 		FE7381E42E792A20001CD7E9 /* TodoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381E32E792A20001CD7E9 /* TodoItemViewModel.swift */; };
+		FE7381EB2E7939EE001CD7E9 /* TodoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381E72E7939EE001CD7E9 /* TodoDetailsViewController.swift */; };
+		FE7381EC2E7939EE001CD7E9 /* TodoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381E82E7939EE001CD7E9 /* TodoDetailsViewModel.swift */; };
+		FE7381ED2E7939EE001CD7E9 /* TodoDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381E92E7939EE001CD7E9 /* TodoDetailsTableViewCell.swift */; };
+		FE7381EE2E7939EE001CD7E9 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381EA2E7939EE001CD7E9 /* UserViewModel.swift */; };
+		FE7381EF2E7939EE001CD7E9 /* TodoDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381E62E7939EE001CD7E9 /* TodoDetailsCoordinator.swift */; };
+		FE7381F12E793E5E001CD7E9 /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381F02E793E5E001CD7E9 /* SectionItem.swift */; };
+		FE7381F32E7945D0001CD7E9 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381F22E7945D0001CD7E9 /* SectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +54,13 @@
 		FE7381DF2E792632001CD7E9 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		FE7381E12E79279C001CD7E9 /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		FE7381E32E792A20001CD7E9 /* TodoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemViewModel.swift; sourceTree = "<group>"; };
+		FE7381E62E7939EE001CD7E9 /* TodoDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsCoordinator.swift; sourceTree = "<group>"; };
+		FE7381E72E7939EE001CD7E9 /* TodoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsViewController.swift; sourceTree = "<group>"; };
+		FE7381E82E7939EE001CD7E9 /* TodoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsViewModel.swift; sourceTree = "<group>"; };
+		FE7381E92E7939EE001CD7E9 /* TodoDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		FE7381EA2E7939EE001CD7E9 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		FE7381F02E793E5E001CD7E9 /* SectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
+		FE7381F22E7945D0001CD7E9 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		FEE81C5B2E78585200E43A99 /* TODO app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TODO app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +134,7 @@
 		FE7381D92E791B3E001CD7E9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				FE7381E52E7939D0001CD7E9 /* TodoDetails */,
 				FE7381BA2E7915F8001CD7E9 /* TODO_app.xcdatamodeld */,
 				FE7381DB2E791B8D001CD7E9 /* TodoList */,
 				FE7381DA2E791B79001CD7E9 /* Common */,
@@ -157,6 +172,20 @@
 				FE7381DD2E7922B0001CD7E9 /* UIView+Extensions.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FE7381E52E7939D0001CD7E9 /* TodoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FE7381E62E7939EE001CD7E9 /* TodoDetailsCoordinator.swift */,
+				FE7381E72E7939EE001CD7E9 /* TodoDetailsViewController.swift */,
+				FE7381E82E7939EE001CD7E9 /* TodoDetailsViewModel.swift */,
+				FE7381E92E7939EE001CD7E9 /* TodoDetailsTableViewCell.swift */,
+				FE7381EA2E7939EE001CD7E9 /* UserViewModel.swift */,
+				FE7381F02E793E5E001CD7E9 /* SectionItem.swift */,
+				FE7381F22E7945D0001CD7E9 /* SectionHeaderView.swift */,
+			);
+			path = TodoDetails;
 			sourceTree = "<group>";
 		};
 		FEE81C522E78585200E43A99 = {
@@ -249,13 +278,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE7381EB2E7939EE001CD7E9 /* TodoDetailsViewController.swift in Sources */,
+				FE7381EC2E7939EE001CD7E9 /* TodoDetailsViewModel.swift in Sources */,
+				FE7381ED2E7939EE001CD7E9 /* TodoDetailsTableViewCell.swift in Sources */,
+				FE7381EE2E7939EE001CD7E9 /* UserViewModel.swift in Sources */,
+				FE7381EF2E7939EE001CD7E9 /* TodoDetailsCoordinator.swift in Sources */,
 				FE7381BE2E7915F8001CD7E9 /* TodoListCoordinator.swift in Sources */,
 				FE7381BF2E7915F8001CD7E9 /* TodoListViewController.swift in Sources */,
 				FE7381C02E7915F8001CD7E9 /* TodoListViewModel.swift in Sources */,
 				FE7381E42E792A20001CD7E9 /* TodoItemViewModel.swift in Sources */,
 				FE7381C12E7915F8001CD7E9 /* AppCoordinator.swift in Sources */,
 				FE7381C22E7915F8001CD7E9 /* AppDelegate.swift in Sources */,
+				FE7381F32E7945D0001CD7E9 /* SectionHeaderView.swift in Sources */,
 				FE7381C32E7915F8001CD7E9 /* BaseCoordinator.swift in Sources */,
+				FE7381F12E793E5E001CD7E9 /* SectionItem.swift in Sources */,
 				FE7381DE2E7922B0001CD7E9 /* UIView+Extensions.swift in Sources */,
 				FE7381C42E7915F8001CD7E9 /* BaseNavigationController.swift in Sources */,
 				FE7381C52E7915F8001CD7E9 /* BaseViewController.swift in Sources */,

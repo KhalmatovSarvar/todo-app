@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol TodoListCoordinator: BaseCoordinator {}
+protocol TodoListCoordinator: BaseCoordinator {
+    func showDetails() 
+}
 
 final class TodoListCoordinatorImpl: TodoListCoordinator {
     var navigationController: UINavigationController
@@ -20,5 +22,10 @@ final class TodoListCoordinatorImpl: TodoListCoordinator {
         let vm = TodoListViewModelImpl(coordinator: self)
         let vc = TodoListViewController(viewModel: vm)
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showDetails() {
+        let coordinator = TodoDetailsCoordinatorImpl(navigationController: navigationController)
+        coordinator.start()
     }
 }
