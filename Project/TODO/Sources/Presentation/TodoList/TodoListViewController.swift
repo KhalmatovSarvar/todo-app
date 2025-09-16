@@ -10,6 +10,16 @@ import UIKit
 final class TodoListViewController: BaseViewController {
     let viewModel: TodoListViewModel
     
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.searchBarStyle = .minimal
+        searchBar.searchTextField.round(radius: 12)
+        searchBar.searchTextField.textColor = .contentPrimary
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.delegate = self
+        return searchBar
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .contentPrimary
@@ -25,6 +35,7 @@ final class TodoListViewController: BaseViewController {
         titleLabel.text = "FIrstPage"
         view.backgroundColor = .backgroundBody
         navigationItem.title = "TODO list"
+        hideKeyboardOnTap(cancelsTouchesInView: true)
     }
     
     
@@ -40,6 +51,7 @@ final class TodoListViewController: BaseViewController {
     override func setupView() {
         super.setupView()
         
+        view.addSubview(searchBar)
         view.addSubview(titleLabel)
     }
     
@@ -47,10 +59,19 @@ final class TodoListViewController: BaseViewController {
         super.autoLayoutView()
         
         NSLayoutConstraint.activate([
+            searchBar.heightAnchor.constraint(equalToConstant: 36),
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
+    
+}
+
+extension TodoListViewController: UISearchBarDelegate {
     
 }

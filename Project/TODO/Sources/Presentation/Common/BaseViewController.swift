@@ -40,7 +40,7 @@ class BaseViewController: UIViewController {
 
 extension BaseViewController {
     final func hideKeyboardOnTap(cancelsTouchesInView: Bool = false, delegate: UIGestureRecognizerDelegate? = nil) {
-        let tapGesture = UIGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapGesture.cancelsTouchesInView = cancelsTouchesInView
         tapGesture.delegate = delegate
         view.isUserInteractionEnabled = true

@@ -21,6 +21,7 @@
 		FE7381CD2E7915F8001CD7E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE7381B22E7915F8001CD7E9 /* Assets.xcassets */; };
 		FE7381CE2E7915F8001CD7E9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE7381B62E7915F8001CD7E9 /* Colors.xcassets */; };
 		FE7381D02E7915F8001CD7E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE7381B82E7915F8001CD7E9 /* LaunchScreen.storyboard */; };
+		FE7381DE2E7922B0001CD7E9 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381DD2E7922B0001CD7E9 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		FE7381BB2E7915F8001CD7E9 /* TODOAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODOAppCoordinator.swift; sourceTree = "<group>"; };
 		FE7381BC2E7915F8001CD7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE7381BD2E7915F8001CD7E9 /* TODO_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TODO_app.xcdatamodel; sourceTree = "<group>"; };
+		FE7381DD2E7922B0001CD7E9 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		FEE81C5B2E78585200E43A99 /* TODO app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TODO app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +86,7 @@
 		FE7381D52E791A2D001CD7E9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FE7381DC2E792297001CD7E9 /* Utilities */,
 				FE7381D92E791B3E001CD7E9 /* Presentation */,
 				FE7381D82E791B30001CD7E9 /* Infrastructure */,
 				FE7381D72E791B28001CD7E9 /* Application */,
@@ -137,6 +140,14 @@
 				FE7381BA2E7915F8001CD7E9 /* TODO_app.xcdatamodeld */,
 			);
 			path = TodoList;
+			sourceTree = "<group>";
+		};
+		FE7381DC2E792297001CD7E9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FE7381DD2E7922B0001CD7E9 /* UIView+Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		FEE81C522E78585200E43A99 = {
@@ -235,6 +246,7 @@
 				FE7381C12E7915F8001CD7E9 /* AppCoordinator.swift in Sources */,
 				FE7381C22E7915F8001CD7E9 /* AppDelegate.swift in Sources */,
 				FE7381C32E7915F8001CD7E9 /* BaseCoordinator.swift in Sources */,
+				FE7381DE2E7922B0001CD7E9 /* UIView+Extensions.swift in Sources */,
 				FE7381C42E7915F8001CD7E9 /* BaseNavigationController.swift in Sources */,
 				FE7381C52E7915F8001CD7E9 /* BaseViewController.swift in Sources */,
 				FE7381C62E7915F8001CD7E9 /* SceneDelegate.swift in Sources */,
