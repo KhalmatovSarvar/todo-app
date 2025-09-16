@@ -14,25 +14,29 @@ final class TodoListViewController: BaseViewController {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
         searchBar.searchTextField.round(radius: 12)
+        searchBar.placeholder = "Search"
         searchBar.searchTextField.textColor = .contentPrimary
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.delegate = self
         return searchBar
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .contentPrimary
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.reuseIdentifier)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
+        tableView.showsVerticalScrollIndicator = false
+        tableView.keyboardDismissMode = .onDrag
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
     }()
-    
+
     override func configureView() {
         super.configureView()
         
-        titleLabel.text = "FIrstPage"
         view.backgroundColor = .backgroundBody
         navigationItem.title = "TODO list"
         hideKeyboardOnTap(cancelsTouchesInView: true)
@@ -52,7 +56,7 @@ final class TodoListViewController: BaseViewController {
         super.setupView()
         
         view.addSubview(searchBar)
-        view.addSubview(titleLabel)
+        view.addSubview(tableView)
     }
     
     override func autoLayoutView() {
@@ -61,15 +65,29 @@ final class TodoListViewController: BaseViewController {
         NSLayoutConstraint.activate([
             searchBar.heightAnchor.constraint(equalToConstant: 36),
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             
-            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
         ])
     }
     
+}
+
+extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TodoListTableViewCell.reuseIdentifier, for: indexPath) as! TodoListTableViewCell
+        let model = viewModel.items[indexPath.row]
+        cell.setup(with: model)
+        return cell
+    }
 }
 
 extension TodoListViewController: UISearchBarDelegate {
