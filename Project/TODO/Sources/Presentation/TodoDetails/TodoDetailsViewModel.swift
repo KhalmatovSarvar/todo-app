@@ -13,38 +13,67 @@ protocol TodoDetailsViewModel {
 
 final class TodoDetailsViewModelImpl: TodoDetailsViewModel {
     let coordinator: TodoDetailsCoordinator
-    let model: UserViewModel
+    let item: TodoItemViewModel
 
-    init(user: UserViewModel, coordinator: TodoDetailsCoordinator) {
+    init(item: TodoItemViewModel, coordinator: TodoDetailsCoordinator) {
         self.coordinator = coordinator
-        model = user
+        self.item = item
     }
-    
+
     var sections: [SectionItem] {
-            [
-                SectionItem(title: "User Info", rows: [
-                    ("Name", model.name),
-                    ("Username", model.username),
-                    ("Email", model.email)
-                ]),
-                SectionItem(title: "Address", rows: [
-                    ("Street", model.address.street),
-                    ("Suite", model.address.suite),
-                    ("City", model.address.city),
-                    ("Zipcode", model.address.zipcode),
-                    ("Geo", "\(model.address.geo.lat), \(model.address.geo.lng)")
-                ]),
-                SectionItem(title: "Contact", rows: [
-                    ("Phone", model.phone),
-                    ("Website", model.website)
-                ]),
-                SectionItem(title: "Company", rows: [
-                    ("Name", model.company.name),
-                    ("CatchPhrase", model.company.catchPhrase),
-                    ("BS", model.company.bs)
-                ])
+        var result: [SectionItem] = []
+
+        let title = item.title
+        let completed: Bool = item.isCompleted
+
+        result.append(SectionItem(
+            title: nil,
+            rows: [("Title", title), ("Completed", completed ? "Yes" : "No")])
+        )
+
+        let user = item.user
+        result.append(SectionItem(
+            title: "User Info",
+            rows: [
+                ("Name", user.name),
+                ("Username", user.username),
+                ("Email", user.email),
+            ])
+        )
+
+        if let address = user.address {
+            var rows: [(label: String, value: String)] = [
+                ("Street", address.street),
+                ("Suite", address.suite),
+                ("City", address.city),
+                ("Zipcode", address.zipcode),
             ]
+
+            if let geo = address.geo {
+                rows.append(("Geo", "\(geo.lat), \(geo.lng)"))
+            }
+
+            result.append(
+                SectionItem(title: "Address", rows: rows)
+            )
         }
+
+        result.append(SectionItem(
+            title: "Contact",
+            rows: [
+                ("Phone", user.phone),
+                ("Website", user.website)])
+        )
+
+        if let company = user.company {
+            result.append(SectionItem(
+                title: "Company",
+                rows: [
+                    ("Name", company.name),
+                    ("CatchPhrase", company.catchPhrase),
+                    ("BS", company.bs)])
+            )
+        }
+        return result
+    }
 }
-
-

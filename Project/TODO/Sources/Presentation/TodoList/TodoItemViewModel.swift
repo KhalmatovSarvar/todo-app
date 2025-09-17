@@ -1,6 +1,6 @@
 //
 //  TodoViewModel.swift
-//  TODO app
+//  TODO: app
 //
 //  Created by Sarvar on 16/09/25.
 //
@@ -8,6 +8,9 @@
 import Foundation
 
 struct TodoItemViewModel {
+    let userId: Int
+    let id: Int
     let title: String
-    var userName: String
+    let isCompleted: Bool
+    let user: UserViewModel
 }

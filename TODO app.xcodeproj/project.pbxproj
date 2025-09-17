@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE0AA0E42E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0E32E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift */; };
+		FE0AA0E62E7A843200F96718 /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0E52E7A843200F96718 /* LocalRepository.swift */; };
+		FE0AA0E82E7A867000F96718 /* LocalRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0E72E7A867000F96718 /* LocalRepositoryImpl.swift */; };
+		FE0AA0EA2E7A8CA100F96718 /* CacheUserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0E92E7A8CA100F96718 /* CacheUserMapper.swift */; };
+		FE0AA0ED2E7A9D1900F96718 /* TodoItemViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0EC2E7A9D1900F96718 /* TodoItemViewModelMapper.swift */; };
+		FE65843D2E79A8F100AC58DC /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65843C2E79A8F100AC58DC /* PersistentContainer.swift */; };
+		FE6584422E79B11B00AC58DC /* FetchTodoListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584412E79B11B00AC58DC /* FetchTodoListUseCase.swift */; };
+		FE6584472E79B1EF00AC58DC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584462E79B1EF00AC58DC /* NetworkService.swift */; };
+		FE65844A2E79B36600AC58DC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE6584492E79B36600AC58DC /* Alamofire */; };
+		FE65844E2E79C53F00AC58DC /* TodoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65844D2E79C53F00AC58DC /* TodoDTO.swift */; };
+		FE6584502E79CD8700AC58DC /* TodoDTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65844F2E79CD8700AC58DC /* TodoDTOMapper.swift */; };
+		FE6584522E79CD9D00AC58DC /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584512E79CD9D00AC58DC /* Mapper.swift */; };
+		FE6584542E79CDB800AC58DC /* RemoteRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584532E79CDB800AC58DC /* RemoteRepositoryImpl.swift */; };
+		FE6584562E79CDD400AC58DC /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584552E79CDD400AC58DC /* APIEndpoint.swift */; };
+		FE65845E2E79CEAE00AC58DC /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65845D2E79CEAE00AC58DC /* RemoteRepository.swift */; };
+		FE6584602E79CF3E00AC58DC /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65845F2E79CF3E00AC58DC /* Todo.swift */; };
+		FE6584642E79D10100AC58DC /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584632E79D10100AC58DC /* UserDTO.swift */; };
+		FE6584662E79D14B00AC58DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584652E79D14B00AC58DC /* User.swift */; };
 		FE7381BE2E7915F8001CD7E9 /* TodoListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381AC2E7915F8001CD7E9 /* TodoListCoordinator.swift */; };
 		FE7381BF2E7915F8001CD7E9 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381AD2E7915F8001CD7E9 /* TodoListViewController.swift */; };
 		FE7381C02E7915F8001CD7E9 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381AE2E7915F8001CD7E9 /* TodoListViewModel.swift */; };
@@ -35,6 +53,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE0AA0E32E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTodosWithUsersUseCase.swift; sourceTree = "<group>"; };
+		FE0AA0E52E7A843200F96718 /* LocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
+		FE0AA0E72E7A867000F96718 /* LocalRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepositoryImpl.swift; sourceTree = "<group>"; };
+		FE0AA0E92E7A8CA100F96718 /* CacheUserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheUserMapper.swift; sourceTree = "<group>"; };
+		FE0AA0EC2E7A9D1900F96718 /* TodoItemViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemViewModelMapper.swift; sourceTree = "<group>"; };
+		FE65843C2E79A8F100AC58DC /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		FE6584412E79B11B00AC58DC /* FetchTodoListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTodoListUseCase.swift; sourceTree = "<group>"; };
+		FE6584462E79B1EF00AC58DC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FE65844D2E79C53F00AC58DC /* TodoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDTO.swift; sourceTree = "<group>"; };
+		FE65844F2E79CD8700AC58DC /* TodoDTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDTOMapper.swift; sourceTree = "<group>"; };
+		FE6584512E79CD9D00AC58DC /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		FE6584532E79CDB800AC58DC /* RemoteRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRepositoryImpl.swift; sourceTree = "<group>"; };
+		FE6584552E79CDD400AC58DC /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		FE65845D2E79CEAE00AC58DC /* RemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRepository.swift; sourceTree = "<group>"; };
+		FE65845F2E79CF3E00AC58DC /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		FE6584632E79D10100AC58DC /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		FE6584652E79D14B00AC58DC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FE7381AC2E7915F8001CD7E9 /* TodoListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListCoordinator.swift; sourceTree = "<group>"; };
 		FE7381AD2E7915F8001CD7E9 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		FE7381AE2E7915F8001CD7E9 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
@@ -69,12 +104,105 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE65844A2E79B36600AC58DC /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE0AA0EB2E7A9D0C00F96718 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				FE6584512E79CD9D00AC58DC /* Mapper.swift */,
+				FE0AA0EC2E7A9D1900F96718 /* TodoItemViewModelMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
+		FE65843E2E79B0A700AC58DC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FE65845A2E79CE1800AC58DC /* Entities */,
+				FE6584592E79CE0300AC58DC /* Mapper */,
+				FE6584582E79CDE700AC58DC /* Repositories */,
+				FE6584572E79CDE000AC58DC /* Requests */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FE65843F2E79B0B200AC58DC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				FE65845B2E79CE3100AC58DC /* Entities */,
+				FE6584432E79B14900AC58DC /* Repositories */,
+				FE6584402E79B0FA00AC58DC /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		FE6584402E79B0FA00AC58DC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				FE6584412E79B11B00AC58DC /* FetchTodoListUseCase.swift */,
+				FE0AA0E32E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		FE6584432E79B14900AC58DC /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FE65845D2E79CEAE00AC58DC /* RemoteRepository.swift */,
+				FE0AA0E52E7A843200F96718 /* LocalRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FE6584572E79CDE000AC58DC /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				FE6584552E79CDD400AC58DC /* APIEndpoint.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		FE6584582E79CDE700AC58DC /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FE6584532E79CDB800AC58DC /* RemoteRepositoryImpl.swift */,
+				FE0AA0E72E7A867000F96718 /* LocalRepositoryImpl.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FE6584592E79CE0300AC58DC /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				FE65844F2E79CD8700AC58DC /* TodoDTOMapper.swift */,
+				FE0AA0E92E7A8CA100F96718 /* CacheUserMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		FE65845A2E79CE1800AC58DC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FE6584632E79D10100AC58DC /* UserDTO.swift */,
+				FE65844D2E79C53F00AC58DC /* TodoDTO.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FE65845B2E79CE3100AC58DC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FE6584652E79D14B00AC58DC /* User.swift */,
+				FE65845F2E79CF3E00AC58DC /* Todo.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		FE7381D12E7919B5001CD7E9 /* Project */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +234,8 @@
 		FE7381D52E791A2D001CD7E9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FE65843F2E79B0B200AC58DC /* Domain */,
+				FE65843E2E79B0A700AC58DC /* Data */,
 				FE7381D92E791B3E001CD7E9 /* Presentation */,
 				FE7381D82E791B30001CD7E9 /* Infrastructure */,
 				FE7381D72E791B28001CD7E9 /* Application */,
@@ -127,6 +257,8 @@
 		FE7381D82E791B30001CD7E9 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FE65843C2E79A8F100AC58DC /* PersistentContainer.swift */,
+				FE6584462E79B1EF00AC58DC /* NetworkService.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -169,6 +301,7 @@
 		FE7381DC2E792297001CD7E9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FE0AA0EB2E7A9D0C00F96718 /* Mappers */,
 				FE7381DD2E7922B0001CD7E9 /* UIView+Extensions.swift */,
 			);
 			path = Utilities;
@@ -221,6 +354,7 @@
 			);
 			name = "TODO app";
 			packageProductDependencies = (
+				FE6584492E79B36600AC58DC /* Alamofire */,
 			);
 			productName = "TODO app";
 			productReference = FEE81C5B2E78585200E43A99 /* TODO app.app */;
@@ -250,6 +384,9 @@
 			);
 			mainGroup = FEE81C522E78585200E43A99;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FE6584482E79B36600AC58DC /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FEE81C5C2E78585200E43A99 /* Products */;
 			projectDirPath = "";
@@ -280,25 +417,42 @@
 			files = (
 				FE7381EB2E7939EE001CD7E9 /* TodoDetailsViewController.swift in Sources */,
 				FE7381EC2E7939EE001CD7E9 /* TodoDetailsViewModel.swift in Sources */,
+				FE0AA0EA2E7A8CA100F96718 /* CacheUserMapper.swift in Sources */,
+				FE0AA0E42E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift in Sources */,
 				FE7381ED2E7939EE001CD7E9 /* TodoDetailsTableViewCell.swift in Sources */,
+				FE6584642E79D10100AC58DC /* UserDTO.swift in Sources */,
 				FE7381EE2E7939EE001CD7E9 /* UserViewModel.swift in Sources */,
 				FE7381EF2E7939EE001CD7E9 /* TodoDetailsCoordinator.swift in Sources */,
+				FE65845E2E79CEAE00AC58DC /* RemoteRepository.swift in Sources */,
 				FE7381BE2E7915F8001CD7E9 /* TodoListCoordinator.swift in Sources */,
 				FE7381BF2E7915F8001CD7E9 /* TodoListViewController.swift in Sources */,
 				FE7381C02E7915F8001CD7E9 /* TodoListViewModel.swift in Sources */,
 				FE7381E42E792A20001CD7E9 /* TodoItemViewModel.swift in Sources */,
 				FE7381C12E7915F8001CD7E9 /* AppCoordinator.swift in Sources */,
+				FE6584422E79B11B00AC58DC /* FetchTodoListUseCase.swift in Sources */,
+				FE6584522E79CD9D00AC58DC /* Mapper.swift in Sources */,
 				FE7381C22E7915F8001CD7E9 /* AppDelegate.swift in Sources */,
+				FE65843D2E79A8F100AC58DC /* PersistentContainer.swift in Sources */,
 				FE7381F32E7945D0001CD7E9 /* SectionHeaderView.swift in Sources */,
+				FE6584542E79CDB800AC58DC /* RemoteRepositoryImpl.swift in Sources */,
+				FE6584562E79CDD400AC58DC /* APIEndpoint.swift in Sources */,
 				FE7381C32E7915F8001CD7E9 /* BaseCoordinator.swift in Sources */,
 				FE7381F12E793E5E001CD7E9 /* SectionItem.swift in Sources */,
 				FE7381DE2E7922B0001CD7E9 /* UIView+Extensions.swift in Sources */,
+				FE0AA0ED2E7A9D1900F96718 /* TodoItemViewModelMapper.swift in Sources */,
 				FE7381C42E7915F8001CD7E9 /* BaseNavigationController.swift in Sources */,
 				FE7381C52E7915F8001CD7E9 /* BaseViewController.swift in Sources */,
+				FE6584662E79D14B00AC58DC /* User.swift in Sources */,
+				FE6584502E79CD8700AC58DC /* TodoDTOMapper.swift in Sources */,
 				FE7381E22E79279C001CD7E9 /* TodoListTableViewCell.swift in Sources */,
 				FE7381C62E7915F8001CD7E9 /* SceneDelegate.swift in Sources */,
 				FE7381C72E7915F8001CD7E9 /* TODO_app.xcdatamodeld in Sources */,
+				FE6584602E79CF3E00AC58DC /* Todo.swift in Sources */,
+				FE0AA0E62E7A843200F96718 /* LocalRepository.swift in Sources */,
+				FE65844E2E79C53F00AC58DC /* TodoDTO.swift in Sources */,
 				FE7381C82E7915F8001CD7E9 /* TODOAppCoordinator.swift in Sources */,
+				FE6584472E79B1EF00AC58DC /* NetworkService.swift in Sources */,
+				FE0AA0E82E7A867000F96718 /* LocalRepositoryImpl.swift in Sources */,
 				FE7381E02E792632001CD7E9 /* BaseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7MWTQPU7P6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "/Users/sarvar/todo-app/Project/TODO/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TODO;
@@ -355,6 +510,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7MWTQPU7P6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "/Users/sarvar/todo-app/Project/TODO/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TODO;
@@ -520,6 +676,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE6584482E79B36600AC58DC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE6584492E79B36600AC58DC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE6584482E79B36600AC58DC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FE7381BA2E7915F8001CD7E9 /* TODO_app.xcdatamodeld */ = {

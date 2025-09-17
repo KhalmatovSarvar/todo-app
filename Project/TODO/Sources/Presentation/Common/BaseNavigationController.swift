@@ -1,9 +1,4 @@
-//
-//  BaseNaviagtionController.swift
-//  TODO app
-//
-//  Created by Sarvar on 15/09/25.
-//
+
 
 import UIKit
 

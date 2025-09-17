@@ -5,45 +5,44 @@
 //  Created by Sarvar on 15/09/25.
 //
 
+import Combine
 import Foundation
 
 protocol TodoListViewModel {
-    var items: [TodoItemViewModel] { get }
-    
-    func selectItem()
+    var items: CurrentValueSubject<[TodoItemViewModel], Never> { get }
+
+    func selectItem(_ item: TodoItemViewModel)
 }
 
 final class TodoListViewModelImpl: TodoListViewModel {
-    let coordinator: TodoListCoordinator
+    var items = CurrentValueSubject<[TodoItemViewModel], Never>([])
 
-    init(coordinator: TodoListCoordinator) {
+    private let coordinator: TodoListCoordinator
+    private let fetchTodosWithUsersUseCase: FetchTodosWithUsersUseCase
+
+    init(
+        fetchTodosWithUsersUseCase: FetchTodosWithUsersUseCase,
+        coordinator: TodoListCoordinator
+    ) {
         self.coordinator = coordinator
+        self.fetchTodosWithUsersUseCase = fetchTodosWithUsersUseCase
+
+        fetchTodosWithUserList()
     }
 
-    let items = [
-        TodoItemViewModel(title: "TODO1", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO12", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO13", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO14", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO15", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO16", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO17", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO18", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO19", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO10", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO11", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO12", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO13", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO14", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO15", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO16", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO17", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO18", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO19", userName: "Sarvar"),
-        TodoItemViewModel(title: "TODO10", userName: "Sarvar"),
-    ]
-    
-    func selectItem() {
-        coordinator.showDetails()
+    func fetchTodosWithUserList() {
+        Task { @MainActor in
+            do {
+                let models = try await fetchTodosWithUsersUseCase.execute()
+                let viewModels = models.compactMap { TodoItemViewModelMapper().map($0) }
+                items.send(viewModels)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func selectItem(_ item: TodoItemViewModel) {
+        coordinator.showDetails(item)
     }
 }

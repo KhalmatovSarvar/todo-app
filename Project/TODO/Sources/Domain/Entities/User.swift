@@ -1,37 +1,35 @@
 //
-//  TodoViewModel.swift
-//  TODO: app
+//  User.swift
+//  TODO app
 //
 //  Created by Sarvar on 16/09/25.
 //
 
-import Foundation
-
-struct UserViewModel {
+struct User {
     let id: Int
     let name: String
     let username: String
     let email: String
-    let address: AddressViewModel?
+    let address: Address?
     let phone: String
     let website: String
-    let company: CompanyViewModel?
+    let company: Company?
 }
 
-struct AddressViewModel {
+struct Address {
     let street: String
     let suite: String
     let city: String
     let zipcode: String
-    let geo: GeoViewModel?
+    let geo: Geo?
 }
 
-struct GeoViewModel {
+struct Geo {
     let lat: String
     let lng: String
 }
 
-struct CompanyViewModel {
+struct Company {
     let name: String
     let catchPhrase: String
     let bs: String
