@@ -24,9 +24,11 @@ final class TodoListCoordinatorImpl: TodoListCoordinator {
         let localRepository = LocalRepositoryImpl()
         let fetchUserListUseCase = FetchUserListUseCaseImpl(repository: todoRepository)
         let fetchTodoListUseCase = FetchTodoListUseCaseImpl(repository: todoRepository)
+        let getTodosWithUsersUseCase = GetTodosWithUsersUseCaseImpl(repository: localRepository)
         let fetchTodosWithUsersUseCase = FetchTodosWithUsersUseCaseImpl(fetchTodos: fetchTodoListUseCase ,fetchUsers: fetchUserListUseCase, repository: localRepository)
 
         let vm = TodoListViewModelImpl(
+            getTodosWithUsersUseCase: getTodosWithUsersUseCase,
             fetchTodosWithUsersUseCase: fetchTodosWithUsersUseCase,
             coordinator: self
         )

@@ -10,11 +10,12 @@
 		FE0AA0E42E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0E32E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift */; };
 		FE0AA0E62E7A843200F96718 /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0E52E7A843200F96718 /* LocalRepository.swift */; };
 		FE0AA0E82E7A867000F96718 /* LocalRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0E72E7A867000F96718 /* LocalRepositoryImpl.swift */; };
-		FE0AA0EA2E7A8CA100F96718 /* CacheUserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0E92E7A8CA100F96718 /* CacheUserMapper.swift */; };
+		FE0AA0EA2E7A8CA100F96718 /* PTodoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0E92E7A8CA100F96718 /* PTodoMapper.swift */; };
 		FE0AA0ED2E7A9D1900F96718 /* TodoItemViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0EC2E7A9D1900F96718 /* TodoItemViewModelMapper.swift */; };
+		FE0AA0EF2E7AC59E00F96718 /* FetchTodosWithUsersLocalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AA0EE2E7AC59E00F96718 /* FetchTodosWithUsersLocalUseCase.swift */; };
 		FE65843D2E79A8F100AC58DC /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65843C2E79A8F100AC58DC /* PersistentContainer.swift */; };
 		FE6584422E79B11B00AC58DC /* FetchTodoListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584412E79B11B00AC58DC /* FetchTodoListUseCase.swift */; };
-		FE6584472E79B1EF00AC58DC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584462E79B1EF00AC58DC /* NetworkService.swift */; };
+		FE6584472E79B1EF00AC58DC /* AppNetworkServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6584462E79B1EF00AC58DC /* AppNetworkServiceFactory.swift */; };
 		FE65844A2E79B36600AC58DC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE6584492E79B36600AC58DC /* Alamofire */; };
 		FE65844E2E79C53F00AC58DC /* TodoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65844D2E79C53F00AC58DC /* TodoDTO.swift */; };
 		FE6584502E79CD8700AC58DC /* TodoDTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65844F2E79CD8700AC58DC /* TodoDTOMapper.swift */; };
@@ -28,7 +29,6 @@
 		FE7381BE2E7915F8001CD7E9 /* TodoListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381AC2E7915F8001CD7E9 /* TodoListCoordinator.swift */; };
 		FE7381BF2E7915F8001CD7E9 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381AD2E7915F8001CD7E9 /* TodoListViewController.swift */; };
 		FE7381C02E7915F8001CD7E9 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381AE2E7915F8001CD7E9 /* TodoListViewModel.swift */; };
-		FE7381C12E7915F8001CD7E9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381B02E7915F8001CD7E9 /* AppCoordinator.swift */; };
 		FE7381C22E7915F8001CD7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381B12E7915F8001CD7E9 /* AppDelegate.swift */; };
 		FE7381C32E7915F8001CD7E9 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381B32E7915F8001CD7E9 /* BaseCoordinator.swift */; };
 		FE7381C42E7915F8001CD7E9 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381B42E7915F8001CD7E9 /* BaseNavigationController.swift */; };
@@ -50,17 +50,47 @@
 		FE7381EF2E7939EE001CD7E9 /* TodoDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381E62E7939EE001CD7E9 /* TodoDetailsCoordinator.swift */; };
 		FE7381F12E793E5E001CD7E9 /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381F02E793E5E001CD7E9 /* SectionItem.swift */; };
 		FE7381F32E7945D0001CD7E9 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7381F22E7945D0001CD7E9 /* SectionHeaderView.swift */; };
+		FEC36DAB2E7B0DA700B0532D /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DAA2E7B0DA700B0532D /* UserMapper.swift */; };
+		FEC36DAD2E7B0DCA00B0532D /* AddressMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DAC2E7B0DCA00B0532D /* AddressMapper.swift */; };
+		FEC36DAF2E7B0DDD00B0532D /* GeoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DAE2E7B0DDD00B0532D /* GeoMapper.swift */; };
+		FEC36DB32E7B0E1E00B0532D /* CompanyMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DB22E7B0E1E00B0532D /* CompanyMapper.swift */; };
+		FEC36DB52E7B0E5300B0532D /* TodoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DB42E7B0E5300B0532D /* TodoMapper.swift */; };
+		FEC36DB72E7B0E7A00B0532D /* PUserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DB62E7B0E7A00B0532D /* PUserMapper.swift */; };
+		FEC36DB92E7B0E8900B0532D /* PAddressMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DB82E7B0E8900B0532D /* PAddressMapper.swift */; };
+		FEC36DBB2E7B0E9600B0532D /* PGeoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DBA2E7B0E9600B0532D /* PGeoMapper.swift */; };
+		FEC36DBD2E7B0EA200B0532D /* PCompanyMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DBC2E7B0EA200B0532D /* PCompanyMapper.swift */; };
+		FEC36DBF2E7B0EF900B0532D /* UserDTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DBE2E7B0EF900B0532D /* UserDTOMapper.swift */; };
+		FEC36DC12E7B0EFF00B0532D /* AddressDTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DC02E7B0EFF00B0532D /* AddressDTOMapper.swift */; };
+		FEC36DC32E7B0F0500B0532D /* CompanyDTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DC22E7B0F0500B0532D /* CompanyDTOMapper.swift */; };
+		FEC36DC52E7B0F0A00B0532D /* GeoDTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DC42E7B0F0A00B0532D /* GeoDTOMapper.swift */; };
+		FEC36DC72E7B0FCB00B0532D /* GeoViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DC62E7B0FCB00B0532D /* GeoViewModelMapper.swift */; };
+		FEC36DC92E7B0FD400B0532D /* CompanyViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DC82E7B0FD400B0532D /* CompanyViewModelMapper.swift */; };
+		FEC36DCB2E7B0FDA00B0532D /* AddressViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DCA2E7B0FDA00B0532D /* AddressViewModelMapper.swift */; };
+		FEC36DCD2E7B0FE200B0532D /* UserViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DCC2E7B0FE200B0532D /* UserViewModelMapper.swift */; };
+		FEC36DD02E7B102800B0532D /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DCF2E7B102800B0532D /* Requestable.swift */; };
+		FEC36DD22E7B106700B0532D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DD12E7B106700B0532D /* NetworkService.swift */; };
+		FEC36DD42E7B108300B0532D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DD32E7B108300B0532D /* NetworkRequest.swift */; };
+		FEC36DD62E7B109E00B0532D /* NetworkConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DD52E7B109E00B0532D /* NetworkConfigurable.swift */; };
+		FEC36DD92E7B117C00B0532D /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DD82E7B117C00B0532D /* Address.swift */; };
+		FEC36DDB2E7B118E00B0532D /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DDA2E7B118E00B0532D /* Geo.swift */; };
+		FEC36DDD2E7B119A00B0532D /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DDC2E7B119A00B0532D /* Company.swift */; };
+		FEC36DDF2E7B11C500B0532D /* FetchUserListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DDE2E7B11C500B0532D /* FetchUserListUseCase.swift */; };
+		FEC36DE12E7B11FD00B0532D /* AddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DE02E7B11FD00B0532D /* AddressDTO.swift */; };
+		FEC36DE32E7B120200B0532D /* CompanyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DE22E7B120200B0532D /* CompanyDTO.swift */; };
+		FEC36DE52E7B120800B0532D /* GeoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DE42E7B120800B0532D /* GeoDTO.swift */; };
+		FEC36DE72E7B141B00B0532D /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC36DE62E7B141B00B0532D /* KeyboardManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FE0AA0E32E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTodosWithUsersUseCase.swift; sourceTree = "<group>"; };
 		FE0AA0E52E7A843200F96718 /* LocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		FE0AA0E72E7A867000F96718 /* LocalRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepositoryImpl.swift; sourceTree = "<group>"; };
-		FE0AA0E92E7A8CA100F96718 /* CacheUserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheUserMapper.swift; sourceTree = "<group>"; };
+		FE0AA0E92E7A8CA100F96718 /* PTodoMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTodoMapper.swift; sourceTree = "<group>"; };
 		FE0AA0EC2E7A9D1900F96718 /* TodoItemViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemViewModelMapper.swift; sourceTree = "<group>"; };
+		FE0AA0EE2E7AC59E00F96718 /* FetchTodosWithUsersLocalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTodosWithUsersLocalUseCase.swift; sourceTree = "<group>"; };
 		FE65843C2E79A8F100AC58DC /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		FE6584412E79B11B00AC58DC /* FetchTodoListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTodoListUseCase.swift; sourceTree = "<group>"; };
-		FE6584462E79B1EF00AC58DC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FE6584462E79B1EF00AC58DC /* AppNetworkServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNetworkServiceFactory.swift; sourceTree = "<group>"; };
 		FE65844D2E79C53F00AC58DC /* TodoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDTO.swift; sourceTree = "<group>"; };
 		FE65844F2E79CD8700AC58DC /* TodoDTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDTOMapper.swift; sourceTree = "<group>"; };
 		FE6584512E79CD9D00AC58DC /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
@@ -73,7 +103,6 @@
 		FE7381AC2E7915F8001CD7E9 /* TodoListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListCoordinator.swift; sourceTree = "<group>"; };
 		FE7381AD2E7915F8001CD7E9 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		FE7381AE2E7915F8001CD7E9 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
-		FE7381B02E7915F8001CD7E9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		FE7381B12E7915F8001CD7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE7381B22E7915F8001CD7E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE7381B32E7915F8001CD7E9 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -96,6 +125,35 @@
 		FE7381EA2E7939EE001CD7E9 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		FE7381F02E793E5E001CD7E9 /* SectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
 		FE7381F22E7945D0001CD7E9 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		FEC36DAA2E7B0DA700B0532D /* UserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
+		FEC36DAC2E7B0DCA00B0532D /* AddressMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressMapper.swift; sourceTree = "<group>"; };
+		FEC36DAE2E7B0DDD00B0532D /* GeoMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMapper.swift; sourceTree = "<group>"; };
+		FEC36DB22E7B0E1E00B0532D /* CompanyMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyMapper.swift; sourceTree = "<group>"; };
+		FEC36DB42E7B0E5300B0532D /* TodoMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMapper.swift; sourceTree = "<group>"; };
+		FEC36DB62E7B0E7A00B0532D /* PUserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUserMapper.swift; sourceTree = "<group>"; };
+		FEC36DB82E7B0E8900B0532D /* PAddressMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAddressMapper.swift; sourceTree = "<group>"; };
+		FEC36DBA2E7B0E9600B0532D /* PGeoMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGeoMapper.swift; sourceTree = "<group>"; };
+		FEC36DBC2E7B0EA200B0532D /* PCompanyMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCompanyMapper.swift; sourceTree = "<group>"; };
+		FEC36DBE2E7B0EF900B0532D /* UserDTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTOMapper.swift; sourceTree = "<group>"; };
+		FEC36DC02E7B0EFF00B0532D /* AddressDTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDTOMapper.swift; sourceTree = "<group>"; };
+		FEC36DC22E7B0F0500B0532D /* CompanyDTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDTOMapper.swift; sourceTree = "<group>"; };
+		FEC36DC42E7B0F0A00B0532D /* GeoDTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoDTOMapper.swift; sourceTree = "<group>"; };
+		FEC36DC62E7B0FCB00B0532D /* GeoViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoViewModelMapper.swift; sourceTree = "<group>"; };
+		FEC36DC82E7B0FD400B0532D /* CompanyViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyViewModelMapper.swift; sourceTree = "<group>"; };
+		FEC36DCA2E7B0FDA00B0532D /* AddressViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModelMapper.swift; sourceTree = "<group>"; };
+		FEC36DCC2E7B0FE200B0532D /* UserViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelMapper.swift; sourceTree = "<group>"; };
+		FEC36DCF2E7B102800B0532D /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
+		FEC36DD12E7B106700B0532D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FEC36DD32E7B108300B0532D /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		FEC36DD52E7B109E00B0532D /* NetworkConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurable.swift; sourceTree = "<group>"; };
+		FEC36DD82E7B117C00B0532D /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		FEC36DDA2E7B118E00B0532D /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo.swift; sourceTree = "<group>"; };
+		FEC36DDC2E7B119A00B0532D /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		FEC36DDE2E7B11C500B0532D /* FetchUserListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserListUseCase.swift; sourceTree = "<group>"; };
+		FEC36DE02E7B11FD00B0532D /* AddressDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDTO.swift; sourceTree = "<group>"; };
+		FEC36DE22E7B120200B0532D /* CompanyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDTO.swift; sourceTree = "<group>"; };
+		FEC36DE42E7B120800B0532D /* GeoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoDTO.swift; sourceTree = "<group>"; };
+		FEC36DE62E7B141B00B0532D /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		FEE81C5B2E78585200E43A99 /* TODO app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TODO app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -114,6 +172,10 @@
 		FE0AA0EB2E7A9D0C00F96718 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
+				FEC36DCC2E7B0FE200B0532D /* UserViewModelMapper.swift */,
+				FEC36DCA2E7B0FDA00B0532D /* AddressViewModelMapper.swift */,
+				FEC36DC82E7B0FD400B0532D /* CompanyViewModelMapper.swift */,
+				FEC36DC62E7B0FCB00B0532D /* GeoViewModelMapper.swift */,
 				FE6584512E79CD9D00AC58DC /* Mapper.swift */,
 				FE0AA0EC2E7A9D1900F96718 /* TodoItemViewModelMapper.swift */,
 			);
@@ -144,8 +206,10 @@
 		FE6584402E79B0FA00AC58DC /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				FEC36DDE2E7B11C500B0532D /* FetchUserListUseCase.swift */,
 				FE6584412E79B11B00AC58DC /* FetchTodoListUseCase.swift */,
 				FE0AA0E32E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift */,
+				FE0AA0EE2E7AC59E00F96718 /* FetchTodosWithUsersLocalUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -179,8 +243,8 @@
 		FE6584592E79CE0300AC58DC /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
-				FE65844F2E79CD8700AC58DC /* TodoDTOMapper.swift */,
-				FE0AA0E92E7A8CA100F96718 /* CacheUserMapper.swift */,
+				FEC36DB12E7B0E0C00B0532D /* DTO */,
+				FEC36DB02E7B0E0400B0532D /* Cache */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -188,6 +252,9 @@
 		FE65845A2E79CE1800AC58DC /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FEC36DE42E7B120800B0532D /* GeoDTO.swift */,
+				FEC36DE22E7B120200B0532D /* CompanyDTO.swift */,
+				FEC36DE02E7B11FD00B0532D /* AddressDTO.swift */,
 				FE6584632E79D10100AC58DC /* UserDTO.swift */,
 				FE65844D2E79C53F00AC58DC /* TodoDTO.swift */,
 			);
@@ -197,6 +264,9 @@
 		FE65845B2E79CE3100AC58DC /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FEC36DDC2E7B119A00B0532D /* Company.swift */,
+				FEC36DDA2E7B118E00B0532D /* Geo.swift */,
+				FEC36DD82E7B117C00B0532D /* Address.swift */,
 				FE6584652E79D14B00AC58DC /* User.swift */,
 				FE65845F2E79CF3E00AC58DC /* Todo.swift */,
 			);
@@ -238,8 +308,8 @@
 				FE65843E2E79B0A700AC58DC /* Data */,
 				FE7381D92E791B3E001CD7E9 /* Presentation */,
 				FE7381D82E791B30001CD7E9 /* Infrastructure */,
-				FE7381D72E791B28001CD7E9 /* Application */,
 				FE7381DC2E792297001CD7E9 /* Utilities */,
+				FE7381D72E791B28001CD7E9 /* Application */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -257,8 +327,8 @@
 		FE7381D82E791B30001CD7E9 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				FE65843C2E79A8F100AC58DC /* PersistentContainer.swift */,
-				FE6584462E79B1EF00AC58DC /* NetworkService.swift */,
+				FEC36DD72E7B10F200B0532D /* Persistency */,
+				FEC36DCE2E7B100600B0532D /* Network */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -267,7 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				FE7381E52E7939D0001CD7E9 /* TodoDetails */,
-				FE7381BA2E7915F8001CD7E9 /* TODO_app.xcdatamodeld */,
 				FE7381DB2E791B8D001CD7E9 /* TodoList */,
 				FE7381DA2E791B79001CD7E9 /* Common */,
 			);
@@ -277,7 +346,6 @@
 		FE7381DA2E791B79001CD7E9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				FE7381B02E7915F8001CD7E9 /* AppCoordinator.swift */,
 				FE7381B32E7915F8001CD7E9 /* BaseCoordinator.swift */,
 				FE7381B42E7915F8001CD7E9 /* BaseNavigationController.swift */,
 				FE7381B52E7915F8001CD7E9 /* BaseViewController.swift */,
@@ -301,6 +369,7 @@
 		FE7381DC2E792297001CD7E9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FEC36DE62E7B141B00B0532D /* KeyboardManager.swift */,
 				FE0AA0EB2E7A9D0C00F96718 /* Mappers */,
 				FE7381DD2E7922B0001CD7E9 /* UIView+Extensions.swift */,
 			);
@@ -319,6 +388,56 @@
 				FE7381F22E7945D0001CD7E9 /* SectionHeaderView.swift */,
 			);
 			path = TodoDetails;
+			sourceTree = "<group>";
+		};
+		FEC36DB02E7B0E0400B0532D /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				FEC36DBC2E7B0EA200B0532D /* PCompanyMapper.swift */,
+				FEC36DBA2E7B0E9600B0532D /* PGeoMapper.swift */,
+				FEC36DB82E7B0E8900B0532D /* PAddressMapper.swift */,
+				FEC36DB62E7B0E7A00B0532D /* PUserMapper.swift */,
+				FEC36DB42E7B0E5300B0532D /* TodoMapper.swift */,
+				FEC36DAE2E7B0DDD00B0532D /* GeoMapper.swift */,
+				FEC36DAC2E7B0DCA00B0532D /* AddressMapper.swift */,
+				FEC36DAA2E7B0DA700B0532D /* UserMapper.swift */,
+				FEC36DB22E7B0E1E00B0532D /* CompanyMapper.swift */,
+				FE0AA0E92E7A8CA100F96718 /* PTodoMapper.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		FEC36DB12E7B0E0C00B0532D /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				FEC36DC42E7B0F0A00B0532D /* GeoDTOMapper.swift */,
+				FEC36DC22E7B0F0500B0532D /* CompanyDTOMapper.swift */,
+				FEC36DC02E7B0EFF00B0532D /* AddressDTOMapper.swift */,
+				FEC36DBE2E7B0EF900B0532D /* UserDTOMapper.swift */,
+				FE65844F2E79CD8700AC58DC /* TodoDTOMapper.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		FEC36DCE2E7B100600B0532D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FEC36DD52E7B109E00B0532D /* NetworkConfigurable.swift */,
+				FEC36DD32E7B108300B0532D /* NetworkRequest.swift */,
+				FEC36DD12E7B106700B0532D /* NetworkService.swift */,
+				FEC36DCF2E7B102800B0532D /* Requestable.swift */,
+				FE6584462E79B1EF00AC58DC /* AppNetworkServiceFactory.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FEC36DD72E7B10F200B0532D /* Persistency */ = {
+			isa = PBXGroup;
+			children = (
+				FE65843C2E79A8F100AC58DC /* PersistentContainer.swift */,
+				FE7381BA2E7915F8001CD7E9 /* TODO_app.xcdatamodeld */,
+			);
+			path = Persistency;
 			sourceTree = "<group>";
 		};
 		FEE81C522E78585200E43A99 = {
@@ -415,44 +534,73 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC36DD02E7B102800B0532D /* Requestable.swift in Sources */,
 				FE7381EB2E7939EE001CD7E9 /* TodoDetailsViewController.swift in Sources */,
 				FE7381EC2E7939EE001CD7E9 /* TodoDetailsViewModel.swift in Sources */,
-				FE0AA0EA2E7A8CA100F96718 /* CacheUserMapper.swift in Sources */,
+				FEC36DDF2E7B11C500B0532D /* FetchUserListUseCase.swift in Sources */,
+				FE0AA0EA2E7A8CA100F96718 /* PTodoMapper.swift in Sources */,
 				FE0AA0E42E7A83CC00F96718 /* FetchTodosWithUsersUseCase.swift in Sources */,
+				FEC36DC32E7B0F0500B0532D /* CompanyDTOMapper.swift in Sources */,
 				FE7381ED2E7939EE001CD7E9 /* TodoDetailsTableViewCell.swift in Sources */,
+				FEC36DE12E7B11FD00B0532D /* AddressDTO.swift in Sources */,
 				FE6584642E79D10100AC58DC /* UserDTO.swift in Sources */,
+				FEC36DCB2E7B0FDA00B0532D /* AddressViewModelMapper.swift in Sources */,
+				FEC36DD42E7B108300B0532D /* NetworkRequest.swift in Sources */,
+				FEC36DC92E7B0FD400B0532D /* CompanyViewModelMapper.swift in Sources */,
+				FEC36DDD2E7B119A00B0532D /* Company.swift in Sources */,
+				FEC36DE52E7B120800B0532D /* GeoDTO.swift in Sources */,
 				FE7381EE2E7939EE001CD7E9 /* UserViewModel.swift in Sources */,
 				FE7381EF2E7939EE001CD7E9 /* TodoDetailsCoordinator.swift in Sources */,
+				FEC36DB52E7B0E5300B0532D /* TodoMapper.swift in Sources */,
+				FEC36DCD2E7B0FE200B0532D /* UserViewModelMapper.swift in Sources */,
 				FE65845E2E79CEAE00AC58DC /* RemoteRepository.swift in Sources */,
+				FEC36DE72E7B141B00B0532D /* KeyboardManager.swift in Sources */,
 				FE7381BE2E7915F8001CD7E9 /* TodoListCoordinator.swift in Sources */,
 				FE7381BF2E7915F8001CD7E9 /* TodoListViewController.swift in Sources */,
+				FEC36DD92E7B117C00B0532D /* Address.swift in Sources */,
 				FE7381C02E7915F8001CD7E9 /* TodoListViewModel.swift in Sources */,
 				FE7381E42E792A20001CD7E9 /* TodoItemViewModel.swift in Sources */,
-				FE7381C12E7915F8001CD7E9 /* AppCoordinator.swift in Sources */,
 				FE6584422E79B11B00AC58DC /* FetchTodoListUseCase.swift in Sources */,
 				FE6584522E79CD9D00AC58DC /* Mapper.swift in Sources */,
 				FE7381C22E7915F8001CD7E9 /* AppDelegate.swift in Sources */,
 				FE65843D2E79A8F100AC58DC /* PersistentContainer.swift in Sources */,
 				FE7381F32E7945D0001CD7E9 /* SectionHeaderView.swift in Sources */,
+				FEC36DAD2E7B0DCA00B0532D /* AddressMapper.swift in Sources */,
 				FE6584542E79CDB800AC58DC /* RemoteRepositoryImpl.swift in Sources */,
+				FEC36DE32E7B120200B0532D /* CompanyDTO.swift in Sources */,
+				FEC36DD22E7B106700B0532D /* NetworkService.swift in Sources */,
+				FEC36DDB2E7B118E00B0532D /* Geo.swift in Sources */,
+				FEC36DC52E7B0F0A00B0532D /* GeoDTOMapper.swift in Sources */,
 				FE6584562E79CDD400AC58DC /* APIEndpoint.swift in Sources */,
+				FEC36DB32E7B0E1E00B0532D /* CompanyMapper.swift in Sources */,
 				FE7381C32E7915F8001CD7E9 /* BaseCoordinator.swift in Sources */,
+				FEC36DBF2E7B0EF900B0532D /* UserDTOMapper.swift in Sources */,
+				FEC36DC72E7B0FCB00B0532D /* GeoViewModelMapper.swift in Sources */,
 				FE7381F12E793E5E001CD7E9 /* SectionItem.swift in Sources */,
 				FE7381DE2E7922B0001CD7E9 /* UIView+Extensions.swift in Sources */,
+				FEC36DBB2E7B0E9600B0532D /* PGeoMapper.swift in Sources */,
 				FE0AA0ED2E7A9D1900F96718 /* TodoItemViewModelMapper.swift in Sources */,
 				FE7381C42E7915F8001CD7E9 /* BaseNavigationController.swift in Sources */,
+				FEC36DD62E7B109E00B0532D /* NetworkConfigurable.swift in Sources */,
+				FEC36DAF2E7B0DDD00B0532D /* GeoMapper.swift in Sources */,
 				FE7381C52E7915F8001CD7E9 /* BaseViewController.swift in Sources */,
 				FE6584662E79D14B00AC58DC /* User.swift in Sources */,
 				FE6584502E79CD8700AC58DC /* TodoDTOMapper.swift in Sources */,
 				FE7381E22E79279C001CD7E9 /* TodoListTableViewCell.swift in Sources */,
 				FE7381C62E7915F8001CD7E9 /* SceneDelegate.swift in Sources */,
+				FEC36DAB2E7B0DA700B0532D /* UserMapper.swift in Sources */,
 				FE7381C72E7915F8001CD7E9 /* TODO_app.xcdatamodeld in Sources */,
 				FE6584602E79CF3E00AC58DC /* Todo.swift in Sources */,
 				FE0AA0E62E7A843200F96718 /* LocalRepository.swift in Sources */,
 				FE65844E2E79C53F00AC58DC /* TodoDTO.swift in Sources */,
+				FEC36DB92E7B0E8900B0532D /* PAddressMapper.swift in Sources */,
+				FEC36DB72E7B0E7A00B0532D /* PUserMapper.swift in Sources */,
+				FEC36DBD2E7B0EA200B0532D /* PCompanyMapper.swift in Sources */,
 				FE7381C82E7915F8001CD7E9 /* TODOAppCoordinator.swift in Sources */,
-				FE6584472E79B1EF00AC58DC /* NetworkService.swift in Sources */,
+				FE6584472E79B1EF00AC58DC /* AppNetworkServiceFactory.swift in Sources */,
+				FE0AA0EF2E7AC59E00F96718 /* FetchTodosWithUsersLocalUseCase.swift in Sources */,
 				FE0AA0E82E7A867000F96718 /* LocalRepositoryImpl.swift in Sources */,
+				FEC36DC12E7B0EFF00B0532D /* AddressDTOMapper.swift in Sources */,
 				FE7381E02E792632001CD7E9 /* BaseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

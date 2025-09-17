@@ -1,11 +1,9 @@
 //
 //  UserDTO.swift
-//  TODO app
+//  TODO: app
 //
 //  Created by Sarvar on 16/09/25.
 //
-
-
 import Foundation
 
 struct UserDTO: Decodable {
@@ -17,23 +15,4 @@ struct UserDTO: Decodable {
     let phone: String?
     let website: String?
     let company: CompanyDTO?
-}
-
-struct AddressDTO: Decodable {
-    let street: String?
-    let suite: String?
-    let city: String?
-    let zipcode: String?
-    let geo: GeoDTO?
-}
-
-struct GeoDTO: Decodable {
-    let lat: String?
-    let lng: String?
-}
-
-struct CompanyDTO: Decodable {
-    let name: String?
-    let catchPhrase: String?
-    let bs: String?
 }

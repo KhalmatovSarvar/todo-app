@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserViewModel {
+struct UserViewModel: Equatable {
     let id: Int
     let name: String
     let username: String
@@ -18,7 +18,7 @@ struct UserViewModel {
     let company: CompanyViewModel?
 }
 
-struct AddressViewModel {
+struct AddressViewModel: Equatable {
     let street: String
     let suite: String
     let city: String
@@ -26,12 +26,12 @@ struct AddressViewModel {
     let geo: GeoViewModel?
 }
 
-struct GeoViewModel {
+struct GeoViewModel: Equatable {
     let lat: String
     let lng: String
 }
 
-struct CompanyViewModel {
+struct CompanyViewModel: Equatable {
     let name: String
     let catchPhrase: String
     let bs: String

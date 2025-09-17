@@ -8,73 +8,99 @@
 import CoreData
 
 final class LocalRepositoryImpl: LocalRepository {
-    func getTodosWithUsers() async throws -> [Todo] {
-        let context = container.viewContext
-        
-        return try await context.perform {
-            let request: NSFetchRequest<PTodoItem> = PTodoItem.fetchRequest()
-            request.relationshipKeyPathsForPrefetching = ["user", "user.address", "user.company", "user.address.geo"]
-            
-            let todoEntities = try context.fetch(request)
-            let todoMapper = PTodoMapper()
-            return todoEntities.map { todoMapper.map($0) }
-        }
-    }
-
-
     private let container: PersistentContainer
 
     init(container: PersistentContainer = .shared) {
         self.container = container
     }
 
-    func save(users: [User], todos: [Todo]) async throws {
-        let context = container.newBackgroundContext()
-        
-        try await context.perform {
-            let userIds = users.map { $0.id }
-            let userFetch: NSFetchRequest<PUser> = PUser.fetchRequest()
-            userFetch.predicate = NSPredicate(format: "id IN %@", userIds)
-            let existingUsers = try context.fetch(userFetch)
-            var userDict: [Int64: PUser] = Dictionary(uniqueKeysWithValues: existingUsers.map { ($0.id, $0) })
+    func getTodosWithUsers(offset: Int, limit: Int, key: String?) async throws -> [Todo] {
+        let context = container.viewContext
 
-            for user in users {
-                let userEntity = userDict[Int64(user.id)] ?? UserMapper(context: context).map(user)
-                userDict[Int64(user.id)] = userEntity
+        return try await context.perform {
+            let request: NSFetchRequest<PTodoItem> = PTodoItem.fetchRequest()
+
+            request.relationshipKeyPathsForPrefetching = [
+                "user",
+                "user.address",
+                "user.address.geo",
+                "user.company",
+            ]
+
+            if let key = key, !key.isEmpty {
+                let predicate = NSPredicate(
+                    format: "title CONTAINS[cd] %@ OR user.name CONTAINS[cd] %@",
+                    key, key
+                )
+                request.predicate = predicate
             }
 
-            let todoIds = todos.map { $0.id }
-            let todoFetch: NSFetchRequest<PTodoItem> = PTodoItem.fetchRequest()
-            todoFetch.predicate = NSPredicate(format: "id IN %@", todoIds)
-            let existingTodos = try context.fetch(todoFetch)
-            var todoDict: [Int64: PTodoItem] = Dictionary(uniqueKeysWithValues: existingTodos.map { ($0.id, $0) })
+            request.fetchOffset = offset
+            request.fetchLimit = limit
 
-            let todoMapper = TodoMapper(context: context)
-            for todo in todos {
-                let todoEntity = todoDict[Int64(todo.id)] ?? todoMapper.map(todo)
-                todoEntity.user = userDict[Int64(todo.userId)]
-                todoDict[Int64(todo.id)] = todoEntity
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \PTodoItem.id, ascending: true)]
+
+            let todoEntities = try context.fetch(request)
+            return todoEntities.map { PTodoMapper().map($0) }
+        }
+    }
+
+    func save(users: [User], todos: [Todo]) async throws {
+        let context = container.newBackgroundContext()
+        context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+
+        try await context.perform {
+            var userDict: [Int64: PUser] = [:]
+            let userMapper = UserMapper(context: context)
+
+            for user in users {
+                let fetch: NSFetchRequest<PUser> = PUser.fetchRequest()
+                fetch.predicate = NSPredicate(format: "id == %d", user.id)
+                fetch.fetchLimit = 1
+
+                if let existingUser = try context.fetch(fetch).first {
+                    userDict[Int64(user.id)] = existingUser
+                } else {
+                    let newUser = userMapper.map(user)
+                    userDict[Int64(user.id)] = newUser
+                }
             }
 
             if context.hasChanges {
                 try context.save()
             }
 
-            print("Saved Users: \(try context.count(for: PUser.fetchRequest())), Saved Todos: \(try context.count(for: PTodoItem.fetchRequest()))")
+            let todoMapper = TodoMapper(context: context)
+
+            for todo in todos {
+                let fetch: NSFetchRequest<PTodoItem> = PTodoItem.fetchRequest()
+                fetch.predicate = NSPredicate(format: "id == %d", todo.id)
+                fetch.fetchLimit = 1
+
+                if let _ = try context.fetch(fetch).first {
+                    continue
+                } else {
+                    let newTodo = todoMapper.map(todo)
+                    if let userEntity = userDict[Int64(todo.userId)] {
+                        newTodo.user = userEntity
+                    }
+                }
+            }
+
+            let inserted = context.insertedObjects.count
+            let updated = context.updatedObjects.count
+            let total = users.count + todos.count
+            let ignored = total - inserted - updated
+
+            print("Inserted: \(inserted), Updated: \(updated), Ignored: \(ignored)")
+
+            if context.hasChanges {
+                try context.save()
+            }
+
+            let userCount = try context.count(for: PUser.fetchRequest())
+            let todoCount = try context.count(for: PTodoItem.fetchRequest())
+            print("users: \(userCount), todos: \(todoCount)")
         }
     }
-
-
-//    func getTodosWithUsers() async throws -> [Todo] {
-//        let context = container.viewContext
-//
-//        return try await context.perform {
-//            let request: NSFetchRequest<PTodoItem> = PTodoItem.fetchRequest()
-//            request.relationshipKeyPathsForPrefetching = ["user"]
-//
-//            let todoEntities = try context.fetch(request)
-//            let mapper = TodoMapper()
-//            return todoEntities.map { mapper.map($0) }
-//        }
-//    }
 }

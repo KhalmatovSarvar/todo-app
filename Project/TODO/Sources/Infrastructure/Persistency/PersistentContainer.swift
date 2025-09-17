@@ -43,7 +43,6 @@ final class PersistentContainer: NSPersistentContainer {
         }
         
         viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
-        viewContext.automaticallyMergesChangesFromParent = true
     }
     
     /// A convenience method for creating background contexts that specify the app as their transaction author.

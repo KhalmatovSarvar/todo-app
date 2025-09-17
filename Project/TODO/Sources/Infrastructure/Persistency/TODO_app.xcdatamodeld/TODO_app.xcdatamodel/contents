@@ -5,26 +5,28 @@
         <attribute name="street" attributeType="String"/>
         <attribute name="suite" attributeType="String"/>
         <attribute name="zipcode" attributeType="String"/>
-        <relationship name="geo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PGeo" inverseName="address" inverseEntity="PGeo"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PUser" inverseName="address" inverseEntity="PUser"/>
+        <relationship name="geo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PGeo"/>
     </entity>
     <entity name="PCompany" representedClassName="PCompany" syncable="YES" codeGenerationType="class">
         <attribute name="bs" attributeType="String"/>
         <attribute name="catchPhrase" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PUser" inverseName="company" inverseEntity="PUser"/>
     </entity>
     <entity name="PGeo" representedClassName="PGeo" syncable="YES" codeGenerationType="class">
         <attribute name="lat" attributeType="String"/>
         <attribute name="lng" attributeType="String"/>
-        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PAddress" inverseName="geo" inverseEntity="PAddress"/>
     </entity>
     <entity name="PTodoItem" representedClassName="PTodoItem" syncable="YES" codeGenerationType="class">
         <attribute name="completed" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="userId" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PUser" inverseName="todos" inverseEntity="PUser"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PUser"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="PUser" representedClassName="PUser" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
@@ -33,8 +35,12 @@
         <attribute name="phone" optional="YES" attributeType="String"/>
         <attribute name="username" attributeType="String"/>
         <attribute name="website" optional="YES" attributeType="String"/>
-        <relationship name="address" maxCount="1" deletionRule="Nullify" destinationEntity="PAddress" inverseName="user" inverseEntity="PAddress"/>
-        <relationship name="company" maxCount="1" deletionRule="Nullify" destinationEntity="PCompany" inverseName="user" inverseEntity="PCompany"/>
-        <relationship name="todos" toMany="YES" deletionRule="Nullify" destinationEntity="PTodoItem" inverseName="user" inverseEntity="PTodoItem"/>
+        <relationship name="address" maxCount="1" deletionRule="Nullify" destinationEntity="PAddress"/>
+        <relationship name="company" maxCount="1" deletionRule="Nullify" destinationEntity="PCompany"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
 </model>

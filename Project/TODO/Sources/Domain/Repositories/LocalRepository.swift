@@ -9,5 +9,5 @@ import Foundation
 
 protocol LocalRepository {
     func save(users: [User], todos: [Todo]) async throws
-    func getTodosWithUsers() async throws -> [Todo]
+    func getTodosWithUsers(offset: Int, limit: Int, key: String?) async throws -> [Todo]
 }

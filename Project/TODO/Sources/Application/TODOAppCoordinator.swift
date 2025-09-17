@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TODOAppCoordinator: AppCoordinator {
+final class TODOAppCoordinator: BaseCoordinator {
     let navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -17,13 +17,5 @@ final class TODOAppCoordinator: AppCoordinator {
     func start() {
         let coordinator = TodoListCoordinatorImpl(navigationController: navigationController)
         coordinator.start()
-    }
-    
-    func appWillEnterForeground() {
-        //handle the state that app enters foreground
-    }
-    
-    func appDidEnterBackground() {
-        //handle the state that app in background
     }
 }

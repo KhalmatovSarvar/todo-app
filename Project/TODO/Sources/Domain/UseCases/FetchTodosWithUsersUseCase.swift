@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FetchTodosWithUsersUseCase {
-    func execute() async throws -> [Todo]
+    func execute() async throws
 }
 
 struct FetchTodosWithUsersUseCaseImpl: FetchTodosWithUsersUseCase {
@@ -26,12 +26,11 @@ struct FetchTodosWithUsersUseCaseImpl: FetchTodosWithUsersUseCase {
         self.repository = repository
     }
 
-    func execute() async throws -> [Todo] {
+    func execute() async throws {
         async let todos = fetchTodos.execute()
         async let users = fetchUsers.execute()
         let (fetchedTodos, fetchedUsers) = try await (todos, users)
 
         try await repository.save(users: fetchedUsers, todos: fetchedTodos)
-        return try await repository.getTodosWithUsers()
     }
 }

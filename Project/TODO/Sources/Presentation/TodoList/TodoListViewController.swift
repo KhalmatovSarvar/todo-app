@@ -5,11 +5,12 @@
 //  Created by Sarvar on 15/09/25.
 //
 
-import UIKit
 import Combine
+import UIKit
 
 final class TodoListViewController: BaseViewController {
-    let viewModel: TodoListViewModel
+    private let viewModel: TodoListViewModel
+    private let keyboardManager = KeyboardManager()
     private var cancellables = Set<AnyCancellable>()
 
     private lazy var searchBar: UISearchBar = {
@@ -29,12 +30,32 @@ final class TodoListViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
-        tableView.keyboardDismissMode = .onDrag
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.prefetchDataSource = self
         return tableView
     }()
+
+    private let loader: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        keyboardManager.startObservingKeyboard()
+
+        keyboardManager.keyboardWillShowObserver = { [weak self] height, timeInterval in
+            self?.keyboardWillShowObserver(height: height, timeInterval: timeInterval)
+        }
+        keyboardManager.keyboardWillHideObserver = { [weak self] in
+            self?.keyboardWillHideObserver()
+        }
+    }
 
     override func configureView() {
         super.configureView()
@@ -58,6 +79,7 @@ final class TodoListViewController: BaseViewController {
 
         view.addSubview(searchBar)
         view.addSubview(tableView)
+        view.addSubview(loader)
     }
 
     override func autoLayoutView() {
@@ -73,6 +95,9 @@ final class TodoListViewController: BaseViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
+
+            loader.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loader.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
 
@@ -80,11 +105,44 @@ final class TodoListViewController: BaseViewController {
         super.setupObserver()
 
         viewModel.items
-            .sink(receiveValue: { [weak self] _ in
+            .removeDuplicates()
+            .combineLatest(viewModel.isLoading)
+            .sink(receiveValue: { [weak self] _, isLoading in
                 guard let self else { return }
+                manageLoader(isLoading)
+                tableView.isUserInteractionEnabled = !isLoading
                 tableView.reloadData()
             })
             .store(in: &cancellables)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        keyboardManager.stopObservingKeyboard()
+    }
+
+    private func manageLoader(_ isLoading: Bool) {
+        if isLoading {
+            loader.startAnimating()
+        } else {
+            loader.stopAnimating()
+        }
+    }
+
+    private func keyboardWillShowObserver(height: CGFloat, timeInterval: TimeInterval) {
+        tableView.contentInset.bottom = height
+
+        UIView.animate(withDuration: timeInterval) {
+            self.view.layoutIfNeeded()
+        }
+    }
+
+    private func keyboardWillHideObserver() {
+        tableView.contentInset.bottom = 0
+
+        UIView.animate(withDuration: 0.4) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
@@ -112,5 +170,37 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension TodoListViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let maxRow = indexPaths.map({ $0.row }).max() else { return }
+        let threshold = 8
+        if maxRow >= viewModel.items.value.count - threshold {
+            viewModel.fetchNextPage()
+        }
+    }
+}
+
 extension TodoListViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.search(with: searchText)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
+        viewModel.search(with: "")
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

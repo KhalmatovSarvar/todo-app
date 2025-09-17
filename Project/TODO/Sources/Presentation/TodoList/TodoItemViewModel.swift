@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TodoItemViewModel {
+struct TodoItemViewModel: Equatable {
     let userId: Int
     let id: Int
     let title: String

@@ -27,7 +27,7 @@ struct RemoteRepositoryImpl: RemoteRepository {
         let mapper = TodoDTOMapper()
         return data.compactMap { mapper.map($0) }
     }
-    
+
     func fetchUserList() async throws -> [User] {
         let requestModel = APIEndpoint.users
         let request = try networkService.request(endpoint: requestModel)

@@ -4,6 +4,7 @@
 //
 //  Created by Sarvar on 16/09/25.
 //
+import Foundation
 
 struct Todo {
     let userId: Int
